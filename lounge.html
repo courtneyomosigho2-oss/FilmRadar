@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema Lounge | FilmRadar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body.lounge-page {
+            background: radial-gradient(circle at center, #112240 0%, #0a192f 100%);
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+        .lounge-wrapper {
+            position: relative;
+            padding: 40px 10%;
+        }
+
+        .lounge-wrapper::before, .lounge-wrapper::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            width: 80px;
+            height: 100%;
+            background: linear-gradient(to right, #050a12, #112240);
+            z-index: -1;
+            opacity: 0.6;
+        }
+        .lounge-wrapper::before { left: 0; border-right: 1px solid rgba(127,219,255,0.1); }
+        .lounge-wrapper::after { right: 0; border-left: 1px solid rgba(127,219,255,0.1); }
+
+        .snack-bar {
+            margin-top: 80px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(127, 219, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .snack-icons {
+            display: flex;
+            justify-content: center;
+            gap: 50px;
+            font-size: 3rem;
+            margin-top: 20px;
+        }
+
+        .snack-item {
+            transition: 0.3s;
+        }
+
+        .snack-item:hover {
+            transform: translateY(-10px);
+            filter: drop-shadow(0 0 15px #7fdbff);
+        }
+
+        .snack-label {
+            display: block;
+            font-size: 0.9rem;
+            color: #7fdbff;
+            margin-top: 10px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body class="lounge-page">
+    <header>
+        <div class="logo">FilmRadar &#128253;</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="discover.html">Discover</a>
+            <a href="watch-later.html">Watch Later</a>
+            <a href="lounge.html">Cinema Lounge</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <div class="lounge-wrapper">
+        <main style="text-align: center; max-width: 1400px; margin: auto;">
+            
+            <section style="margin-bottom: 50px;">
+                <div style="background: rgba(127, 219, 255, 0.1); display: inline-block; padding: 15px 30px; border-radius: 50px; border: 1px solid rgba(127,219,255,0.3);">
+                    <audio id="lounge-audio" loop>
+                        <source src="audio/lounge-theme.mp3" type="audio/mpeg">
+                    </audio>
+                    <span style="color: white; margin-right: 15px; font-size: 0.9rem;">Sound:</span>
+                    <button onclick="document.getElementById('lounge-audio').play()" style="padding: 8px 20px; cursor: pointer; border-radius: 20px; background: #7fdbff; font-weight: bold; border: none;">ON</button>
+                    <button onclick="document.getElementById('lounge-audio').pause()" style="padding: 8px 20px; cursor: pointer; border-radius: 20px; background: #333; color: white; border: none; margin-left: 5px;">OFF</button>
+                </div>
+            </section>
+
+            <h1 class="neon-title" style="color: #7fdbff; font-size: 3rem; margin-bottom: 60px; text-transform: uppercase; letter-spacing: 8px;">Spotlight: 2025 Favourites</h1>
+
+            <div style="display: flex; justify-content: space-around; align-items: flex-start; gap: 40px; flex-wrap: wrap;">
+                
+                <div class="movie-card" onclick="playTrailer('BjkIOU5PhyQ', 'Zootopia 2')" style="width: 40%; min-width: 320px; cursor: pointer;">
+                    <h2 style="color: white; margin-bottom: 20px; font-size: 2.2rem;">Zootopia 2</h2>
+                    <img src="images/poster2.jpg" alt="Zootopia 2" style="width: 100%; border-radius: 15px; border: 2px solid #7fdbff; box-shadow: 0 0 20px rgba(127,219,255,0.2);">
+                    <p style="color: #7fdbff; margin-top: 20px; font-style: italic;">Tap to play trailer</p>
+                </div>
+
+                <div class="movie-card" onclick="playTrailer('VWqJifMMgZE', 'Lilo & Stitch')" style="width: 40%; min-width: 320px; cursor: pointer;">
+                    <h2 style="color: white; margin-bottom: 20px; font-size: 2.2rem;">Lilo & Stitch</h2>
+                    <img src="images/poster3.jpg" alt="Lilo & Stitch" style="width: 100%; border-radius: 15px; border: 2px solid #7fdbff; box-shadow: 0 0 20px rgba(127,219,255,0.2);">
+                    <p style="color: #7fdbff; margin-top: 20px; font-style: italic;">Tap to play trailer</p>
+                </div>
+
+            </div>
+
+            <div id="video-display" style="margin-top: 80px; display: none; width: 100%;">
+                <h2 id="current-title" style="color: #7fdbff; margin-bottom: 30px; font-size: 1.5rem;">Now Playing</h2>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; background: #000; border-radius: 20px; border: 2px solid #7fdbff; overflow: hidden; box-shadow: 0 0 50px rgba(127,219,255,0.3);">
+                    <iframe id="youtube-player" 
+                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"
+                        src="" 
+                        frameborder="0" 
+                        allow="autoplay; encrypted-media" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+
+            <section class="snack-bar">
+                <h2 style="color: #7fdbff; letter-spacing: 3px; font-size: 1.5rem;">CONCESSIONS STAND</h2>
+                <div class="snack-icons">
+                    <div class="snack-item">🍿 <span class="snack-label">Popcorn</span></div>
+                    <div class="snack-item">🥤 <span class="snack-label">Soda</span></div>
+                    <div class="snack-item">🍫 <span class="snack-label">Treats</span></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        function playTrailer(id, title) {
+            const displayArea = document.getElementById('video-display');
+            const player = document.getElementById('youtube-player');
+            const titleHeader = document.getElementById('current-title');
+
+            displayArea.style.display = "block";
+            player.src = "https://www.youtube.com/embed/" + id + "?autoplay=1";
+            titleHeader.innerText = "Now Playing: " + title;
+
+            window.scrollTo({ top: displayArea.offsetTop - 50, behavior: 'smooth' });
+        }
+    </script>
+
+    <footer style="margin-top: 80px; padding: 40px; color: #444; text-align: center; border-top: 1px solid rgba(255,255,255,0.05);">
+        <p>&copy; 2026 FilmRadar </p>
+    </footer>
+</body>
+</html>
