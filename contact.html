@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | FilmRadar</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">FilmRadar &#128253;</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="discover.html">Discover</a>
+            <a href="watch-later.html">Watch Later</a>
+            <a href="lounge.html">Cinema Lounge</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main style="padding: 40px 20px;">
+        <section class="form-container" style="max-width: 500px; margin: 0 auto; background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px;">
+            <h2 style="text-align: center; color: #7fdbff; margin-bottom: 20px;">Contact FilmRadar Support</h2>
+            
+            <form id="contact-form" style="display: flex; flex-direction: column; gap: 15px;">
+                <input type="text" id="user-name" placeholder="Full Name" required 
+                       style="padding: 12px; border-radius: 5px; border: 1px solid #444; background: #1a1a1a; color: white;">
+                
+                <input type="email" id="user-email" placeholder="Email Address" required 
+                       style="padding: 12px; border-radius: 5px; border: 1px solid #444; background: #1a1a1a; color: white;">
+                
+                <select id="subject" style="padding: 12px; border-radius: 5px; border: 1px solid #444; background: #1a1a1a; color: white;">
+                    <option value="feedback">General Feedback</option>
+                    <option value="bug">Report a Bug</option>
+                    <option value="request">Movie Request</option>
+                </select>
+                
+                <textarea id="user-msg" placeholder="How can we help?" rows="5" 
+                          style="padding: 12px; border-radius: 5px; border: 1px solid #444; background: #1a1a1a; color: white; font-family: sans-serif;"></textarea>
+                
+                <button type="submit" style="padding: 15px; background: #7fdbff; border: none; border-radius: 5px; color: #001f3f; font-weight: bold; cursor: pointer; font-size: 1rem;">
+                    Send Message
+                </button>
+            </form>
+            
+            <div id="form-feedback" style="margin-top: 15px; text-align: center; color: #7fdbff;"></div>
+        </section>
+    </main>
+
+    <footer style="margin-top: 50px; padding: 20px; text-align: center; color: #555;">
+        <p>&copy; 2026 FilmRadar</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+

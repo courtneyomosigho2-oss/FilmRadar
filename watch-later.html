@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Later | FilmRadar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .watch-later-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            background: var(--light-navy);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(127, 219, 255, 0.1);
+            width: 250px;
+        }
+
+        .watch-later-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(127, 219, 255, 0.3);
+            border-color: var(--pastel-blue);
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: var(--pastel-blue);
+            color: var(--navy);
+            padding: 4px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.7rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body onload="displayWatchLater()" style="background: var(--navy); color: var(--white); margin: 0;">
+
+    <header>
+        <div class="logo">FilmRadar &#128253;</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="discover.html">Discover</a>
+            <a href="watch-later.html">Watch Later</a>
+            <a href="lounge.html">Cinema Lounge</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main style="padding: 40px; max-width: 1200px; margin: 0 auto; min-height: 80vh;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; border-bottom: 2px solid var(--pastel-blue); padding-bottom: 15px;">
+            <h1 style="color: var(--pastel-blue); margin: 0; font-family: 'Times New Roman', serif;">My Collection</h1>
+            
+            <button onclick="clearAll()" style="background: rgba(255, 71, 71, 0.2); color: #ff4d4d; border: 1px solid #ff4d4d; padding: 10px 20px; border-radius: 20px; cursor: pointer; font-weight: bold;">
+                Clear All 🗑️
+            </button>
+        </div>
+        
+        <div id="watch-later-grid" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+            <p>Accessing your cinema vault...</p>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 40px; color: #555; border-top: 1px solid #333; margin-top: 50px;">
+        <p>&copy; 2026 FilmRadar</p>
+    </footer>
+
+    <script>
+        function displayWatchLater() {
+            const grid = document.getElementById('watch-later-grid');
+            const list = JSON.parse(localStorage.getItem('watchLaterList')) || [];
+
+            if (list.length === 0) {
+                grid.innerHTML = `
+                    <div style="text-align: center; padding: 80px 20px; opacity: 0.6; width: 100%;">
+                        <div style="font-size: 5rem; margin-bottom: 20px;">🎞️</div>
+                        <h2>Your cinema seat is empty...</h2>
+                        <p style="margin-bottom: 25px;">Start adding movies to your collection today.</p>
+                        <a href="index.html" style="background: var(--pastel-blue); color: var(--navy); text-decoration: none; padding: 12px 30px; border-radius: 25px; font-weight: bold;">
+                            Find Movies
+                        </a>
+                    </div>`;
+                return;
+            }
+
+            grid.innerHTML = list.map(movie => `
+                <div class="watch-later-item">
+                    <div style="position: relative;">
+                        <img src="${movie.poster !== 'N/A' ? movie.poster : 'images/placeholder.jpg'}" alt="${movie.title}" style="width: 100%; height: 350px; object-fit: cover;">
+                        <div class="badge">SAVED</div>
+                    </div>
+                    
+                    <div style="padding: 20px; text-align: center;">
+                        <h3 style="margin: 0 0 15px 0; height: 50px; overflow: hidden; color: var(--pastel-blue);">${movie.title}</h3>
+                        <div style="display: flex; flex-direction: column; gap: 10px;">
+                            <button onclick="viewMovie('${movie.id}')" style="background: var(--pastel-blue); color: var(--navy); border: none; padding: 10px; cursor: pointer; border-radius: 5px; font-weight: bold;">
+                                View Details
+                            </button>
+                            <button onclick="removeOne('${movie.id}')" style="background: transparent; border: 1px solid #ff4d4d; color: #ff4d4d; padding: 8px; cursor: pointer; border-radius: 5px; font-size: 0.8rem;">
+                                Remove from List
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function removeOne(id) {
+            let list = JSON.parse(localStorage.getItem('watchLaterList')) || [];
+            list = list.filter(movie => movie.id !== id); 
+            localStorage.setItem('watchLaterList', JSON.stringify(list));
+            displayWatchLater(); 
+        }
+
+        function viewMovie(id) {
+            localStorage.setItem('selectedMovieID', id);
+            window.location.href = 'details.html';
+        }
+
+        function clearAll() {
+            if(confirm("Clear your entire library?")) {
+                localStorage.removeItem('watchLaterList');
+                displayWatchLater();
+            }
+        }
+    </script>
+</body>
+</html>

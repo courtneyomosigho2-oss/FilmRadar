@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="FilmRadar: The ultimate cinema search experience.">
+    <title>FilmRadar | Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">FilmRadar &#128253;</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="discover.html">Discover</a>
+            <a href="watch-later.html">Watch Later</a>
+            <a href="lounge.html">Cinema Lounge</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cinema-hero">
+            <div class="screen-overlay">
+                <h1 class="neon-title">FilmRadar</h1>
+                <div class="search-container">
+                    <input type="text" id="movie-input" placeholder="Search for a movie title...">
+                    <button id="search-btn">Search</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="watch-later-preview" style="padding: 20px; display: none; border-bottom: 1px solid #333; max-width: 1200px; margin: 0 auto;">
+            <h2 style="color: #7fdbff; margin-bottom: 15px;">🍿 My Watch Later List</h2>
+            <div id="preview-grid" style="display: flex; gap: 15px; overflow-x: auto; padding-bottom: 10px;"></div>
+            <a href="watch-later.html" style="color: #7fdbff; font-size: 0.9rem; text-decoration: none;">View Full List →</a>
+        </section>
+
+        <section id="results-grid" class="movie-grid" style="padding: 20px;"></section>
+    </main>
+
+    <footer style="text-align: center; padding: 20px; color: #555;">
+        <p>&copy; 2026 FilmRadar</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
+

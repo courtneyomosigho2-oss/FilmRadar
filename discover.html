@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore movie trends, cinematic history, and film terminology on FilmRadar.">
+    <title>Movie Trends & Evolution | FilmRadar</title>
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        /* 1. Ambient Background Pulse */
+        @keyframes ambientPulse {
+            0% { background-color: #001f3f; }
+            50% { background-color: #000c1a; }
+            100% { background-color: #001f3f; }
+        }
+
+        /* 2. Neon Flicker Effect for Title */
+        @keyframes neonFlicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 0 0 7px #7fdbff, 0 0 10px #7fdbff, 0 0 21px #7fdbff;
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        .discover-body {
+            animation: ambientPulse 12s infinite ease-in-out;
+            transition: background-color 1s ease;
+        }
+
+        .neon-text {
+            animation: neonFlicker 4s infinite alternate;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body class="discover-body"> 
+
+    <header>
+        <div class="logo">FilmRadar &#128253;</div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="discover.html">Discover</a>
+            <a href="watch-later.html">Watch Later</a>
+            <a href="lounge.html">Cinema Lounge</a> 
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+
+    <main style="max-width: 900px; margin: 0 auto; padding: 40px 20px;">
+        <h1 class="neon-text" style="color: #7fdbff; text-align: center; font-size: 2.8rem; margin-bottom: 10px;">
+            Movie Trends & Cinematic Evolution
+        </h1>
+        
+        <p style="text-align: center; color: #ccc; margin-bottom: 40px; font-style: italic;">
+            An in-depth exploration of the silver screen, from silent classics to 2026's digital frontier.
+        </p>
+
+        <article style="line-height: 1.8; margin-bottom: 50px;">
+            <h2 style="color: #7fdbff; border-left: 5px solid #7fdbff; padding-left: 15px;">The Journey of Motion Pictures</h2>
+            <p>
+                The history of cinema is a fascinating timeline of technological breakthroughs and artistic shifts. It began in the late 19th century with the <strong>Kinetoscope</strong> and the <strong>Cinématographe</strong>, moving from short, silent clips to the "Talkies" during the late 1920s. This transition revolutionised how stories were told, shifting away from pure visual pantomime to dialogue-driven narratives.
+            </p>
+            <p>
+                As we moved into the mid-20th century, the introduction of <strong>Technicolor</strong> and widescreen formats like <strong>CinemaScope</strong> were direct responses to the rising popularity of television. Filmmakers realised that to keep audiences in theaters, they needed to provide an experience that was "larger than life." Today, in 2026, we see a similar shift as <strong>Virtual Reality (VR)</strong> and <strong>Augmented Reality (AR)</strong> begin to influence how directors frame their shots.
+            </p>
+        </article>
+
+        <section style="background: rgba(255,255,255,0.05); padding: 30px; border-radius: 15px; margin-bottom: 50px;">
+            <h2 style="color: #7fdbff; text-align: center;">Cinema Terms Every Fan Should Know</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px;">
+                <div>
+                    <h4 style="color: #7fdbff; margin-bottom: 5px;">Mise-en-scène</h4>
+                    <p style="font-size: 0.9rem; color: #bbb;">A French term meaning "placing on stage." It refers to the things that appear before the camera, like set design, lighting, and costume.</p>
+                </div>
+                <div>
+                    <h4 style="color: #7fdbff; margin-bottom: 5px;">Cinematography</h4>
+                    <p style="font-size: 0.9rem; color: #bbb;">The art of photography and camerawork in filmmaking, such as the choice of film stock, lenses and camera angles.</p>
+                </div>
+                <div>
+                    <h4 style="color: #7fdbff; margin-bottom: 5px;">The "MacGuffin"</h4>
+                    <p style="font-size: 0.9rem; color: #bbb;">An object or device in a movie that serves as a trigger for the plot, popularised by Alfred Hitchcock.</p>
+                </div>
+                <div>
+                    <h4 style="color: #7fdbff; margin-bottom: 5px;">Post-Production</h4>
+                    <p style="font-size: 0.9rem; color: #bbb;">The phase after filming where editing, sound mixing, and visual effects (VFX) are added to the final cut.</p>
+                </div>
+            </div>
+        </section>
+
+        <section style="line-height: 1.8;">
+            <h2 style="color: #7fdbff;">Why We Curate This Content</h2>
+            <p>
+                At <strong>FilmRadar</strong>, our goal is to enhance your <strong>User Experience (UX)</strong> by providing more than a search bar. We believe that a well-informed viewer is a more engaged viewer. By understanding the technical aspects of filmmaking, such as <strong>frame rates</strong>, <strong>aspect ratios</strong>, and <strong>color grading</strong>, you can appreciate the trailers you see on our site.
+            </p>
+            <p>
+                This page is optimised for <strong>Search Engine Results Pages (SERPs)</strong>, ensuring that fans looking for "movie history," "film glossaries," or "2026 cinema trends" can find this platform effortlessly. We utilise <strong>Semantic HTML5 tags</strong> like <code>&lt;article&gt;</code> and <code>&lt;section&gt;</code> to ensure accessibility.
+            </p>
+        </section>
+
+        <div style="text-align: center; margin-top: 60px; padding: 30px; border: 2px solid #7fdbff; border-radius: 10px;">
+            <h3 style="margin-top: 0;">Ready to apply your knowledge?</h3>
+            <p>Go to the <a href="index.html" style="color: #7fdbff; text-decoration: none; font-weight: bold;">Movie Search Engine</a> and find a classic to analyse today!</p>
+        </div>
+    </main>
+
+    <footer style="text-align: center; padding: 20px; color: #555; border-top: 1px solid #333; margin-top: 50px;">
+        <p>&copy; 2026 FilmRadar</p>
+    </footer>
+
+</body>
+</html>
